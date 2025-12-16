@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冬季Seminar会议日程</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Segoe UI', sans-serif;
+            background-color: #e6f7ff; /* 浅蓝色背景，冬季天空色调 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: linear-gradient(135deg, #e6f7ff 0%, #f0f8ff 100%);
+        }
+        .schedule-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(66, 133, 244, 0.15);
+            width: 650px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #c1e1ff; /* 冰蓝色边框 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .schedule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(66, 133, 244, 0.2);
+        }
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/snow.png') repeat; /* 雪花纹理背景 */
+            opacity: 0.15;
+            z-index: 0;
+        }
+        .schedule-card h2 {
+            text-align: center;
+            color: #2c5282; /* 深蓝色标题 */
+            margin-bottom: 10px;
+            font-size: 26px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #4299e1; /* 冰蓝色虚线 */
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        .datetime-location {
+            text-align: center;
+            font-size: 16px;
+            color: #4a5568; /* 深灰色文字 */
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(237, 247, 255, 0.7); /* 淡蓝色背景 */
+            padding: 8px;
+            border-radius: 8px;
+            border-left: 3px solid #4299e1;
+        }
+        .note {
+            text-align: center;
+            font-size: 14px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            background-color: rgba(226, 242, 255, 0.8); /* 冰蓝色背景 */
+            padding: 10px;
+            border-radius: 8px;
+            position: relative;
+            z-index: 1;
+            border-left: 3px solid #63b3ed;
+        }
+        .session {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            transition: background-color 0.3s, transform 0.2s;
+            position: relative;
+            z-index: 1;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+        .session:hover {
+            background-color: #f7fafc; /* 悬停时淡灰色 */
+            transform: scale(1.01);
+        }
+        .session:last-child {
+            border-bottom: none;
+        }
+        .time {
+            font-weight: bold;
+            color: #2b6cb0; /* 深蓝色时间 */
+            width: 20%;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            background-color: rgba(66, 153, 225, 0.08);
+            border-radius: 6px;
+            border-left: 3px solid #4299e1;
+        }
+        .details {
+            width: 78%;
+            padding: 10px;
+        }
+        .details span {
+            display: block;
+            margin: 5px 0;
+            color: #4a5568;
+        }
+        .details .title {
+            font-weight: bold;
+            color: #2c5282; /* 深蓝色标题 */
+            font-size: 17px;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            border-bottom: 1px dotted #cbd5e0;
+        }
+        .lunch {
+            background-color: rgba(160, 174, 192, 0.1);
+        }
+        .lunch .title {
+            color: #4a5568;
+            font-style: italic;
+        }
+        /* 冬季装饰元素 */
+        .winter-decoration {
+            position: absolute;
+            z-index: 0;
+        }
+        .snowflake {
+            position: absolute;
+            color: #a0d2ff;
+            font-size: 24px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+        .snowflake:nth-child(1) {
+            top: 20px;
+            left: 30px;
+        }
+        .snowflake:nth-child(2) {
+            top: 60px;
+            right: 40px;
+        }
+        .snowflake:nth-child(3) {
+            bottom: 80px;
+            left: 50px;
+        }
+        .snowflake:nth-child(4) {
+            bottom: 40px;
+            right: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="schedule-card">
+        <!-- 冬季装饰雪花 -->
+        <div class="snowflake">❄️</div>
+        <div class="snowflake">❄️</div>
+        <div class="snowflake">❄️</div>
+        <div class="snowflake">❄️</div>
+        
+        <h2>❄️ 冬季 Seminar 会议日程 ❄️</h2>
+        <div class="datetime-location">时间：12月29日（星期一），地点：明德主楼515A</div>
+        <div class="note">报告人20分钟，评论人10分钟，自由讨论30分钟</div>
+        
+        <div class="session">
+            <div class="time">9:00-10:00</div>
+            <div class="details">
+                <span class="title">待定</span>
+                <span>报告人：张令昊</span>
+                <span>评论人：赵沛炫</span>
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">10:00-11:00</div>
+            <div class="details">
+                <span class="title">待定</span>
+                <span>报告人：陆予恬</span>
+                <span>评论人：欧阳伊玲</span>
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">11:00-12:00</div>
+            <div class="details">
+                <span class="title">待定</span>
+                <span>报告人：鲁嘉任</span>
+                <span>评论人：陈福康</span>
+            </div>
+        </div>
+        <div class="session lunch">
+            <div class="time">12:00-13:00</div>
+            <div class="details">
+                <span class="title">午饭</span>
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">13:30-14:30</div>
+            <div class="details">
+                <span class="title">待定</span>
+                <span>报告人：谢秉原</span>
+                <span>评论人：王愉靖</span>
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">14:30-15:30</div>
+            <div class="details">
+                <span class="title">待定</span>
+                <span>报告人：李锦璇</span>
+                <span>评论人：温慧愉</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 添加简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sessions = document.querySelectorAll('.session');
+            
+            sessions.forEach(session => {
+                session.addEventListener('mouseenter', function() {
+                    if(!this.classList.contains('lunch')) {
+                        this.style.boxShadow = '0 4px 12px rgba(66, 153, 225, 0.2)';
+                    }
+                });
+                
+                session.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // 添加雪花飘落动画
+            const snowflakes = document.querySelectorAll('.snowflake');
+            snowflakes.forEach((flake, index) => {
+                // 轻微动画效果
+                flake.style.animation = `float ${3 + index}s ease-in-out infinite alternate`;
+            });
+            
+            // 添加CSS动画
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0% { transform: translateY(0) rotate(0deg); }
+                    100% { transform: translateY(10px) rotate(10deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
